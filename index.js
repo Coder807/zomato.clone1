@@ -1,33 +1,17 @@
-import React, { useState } from 'react';
-import Header from '../../components/common/header';
-import TabOptions from '../../components/common/tabOptions';
-import Footer from '../../components/common/footer';
-import Delivery from '../../components/delivery';
-import DiningOut from '../../components/diningOut';
-import NightLife from '../../components/nightlife';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-const HomePage = () => {
-  const [activeTab, setActiveTab] = useState("Delivery");
-  return (
-    <div>
-      <Header />
-      <TabOptions activeTab={activeTab} setActiveTab={setActiveTab} />
-      {getCorrectScreen(activeTab)}
-      <Footer />
-    </div>
-  )
-}
-const getCorrectScreen=(tab)=>{
-     switch(tab){
-      case "Delivery":
-      return <Delivery />;
-      case "DiningOut":
-      return <DiningOut />;
-      case "NightLife":
-      return <NightLife />;
-       default:
-        return <Delivery />;
-     }
-};
-export default HomePage;
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
